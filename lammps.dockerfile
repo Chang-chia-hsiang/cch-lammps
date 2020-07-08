@@ -16,7 +16,7 @@ cd openmpi-4.0.4/ && \
 ./configure --prefix=$HOME/openmpi-4.0.4/ && \
 make all && make install  && \
 cd /root/ && rm openmpi-4.0.4.tar && \
-printf '\nPATH=$PATH:$HOME/openmpi-4.0.4/bin' >> ~/.bashrc && \
+RUN printf '\nPATH=$PATH:$HOME/openmpi-4.0.4/bin' >> ~/.bashrc && \
 source ~/.bashrc && \
 cd ~/lammps-3Mar20/src/ && \
 apt install fftw3 -y && \
