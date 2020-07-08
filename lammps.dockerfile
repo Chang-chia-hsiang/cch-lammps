@@ -17,13 +17,13 @@ cd openmpi-4.0.4/ && \
 make all && make install  && \
 cd /root/ && rm openmpi-4.0.4.tar
 
-RUN printf '\nPATH=$PATH:$HOME/openmpi-4.0.4/bin' >> /root/.bashrc && \
-source /root/.bashrc && \
-apt install fftw3 -y && \
+RUN apt install fftw3 -y && \
 cd /usr/lib/x86_64-linux-gnu/ && \
 ln -s libfftw3.so.3 libfftw.so
 
 RUN cd /root/lammps-3Mar20/src/ && \
+printf '\nPATH=$PATH:$HOME/openmpi-4.0.4/bin' >> /root/.bashrc && \
+source /root/.bashrc && \
 make mpi-stubs && \
 make yes-all && make no-lib && \
 make mpi && make mac && make serial && \
