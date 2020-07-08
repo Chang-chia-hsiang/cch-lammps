@@ -15,7 +15,8 @@ tar xvf openmpi-4.0.4.tar && \
 cd openmpi-4.0.4/ && \
 ./configure --prefix=$HOME/openmpi-4.0.4/ && \
 make all && make install  && \
-cd /root/ && rm openmpi-4.0.4.tar && \
+cd /root/ && rm openmpi-4.0.4.tar
+
 RUN printf '\nPATH=$PATH:$HOME/openmpi-4.0.4/bin' >> ~/.bashrc && \
 source ~/.bashrc && \
 cd ~/lammps-3Mar20/src/ && \
