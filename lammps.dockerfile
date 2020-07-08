@@ -22,7 +22,7 @@ cd /usr/lib/x86_64-linux-gnu/ && \
 ln -s libfftw3.so.3 libfftw.so
 
 RUN cd /root/lammps-3Mar20/src/ && \
-printf '\nPATH=$PATH:$HOME/openmpi-4.0.4/bin' >> /root/.bashrc && \
+printf '\nPATH=$PATH:/root/openmpi-4.0.4/bin' >> /root/.bashrc && \
 source /root/.bashrc && \
 make mpi-stubs && \
 make yes-all && make no-lib && \
