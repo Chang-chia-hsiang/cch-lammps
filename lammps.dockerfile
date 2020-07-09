@@ -10,8 +10,7 @@ RUN apt update && apt install -y \
 RUN wget https://sourceforge.net/projects/lammps/files/latest/download && \
 tar xvf download && \
 wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.4.tar.gz && \
-gunzip openmpi-4.0.4.tar.gz && \
-tar xvf openmpi-4.0.4.tar && \
+tar zxvf openmpi-4.0.4.tar.gz && \
 cd openmpi-4.0.4/ && \
 ./configure --prefix=$HOME/openmpi-4.0.4/ && \
 make all && make install  && \
