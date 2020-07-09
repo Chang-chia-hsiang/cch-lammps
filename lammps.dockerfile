@@ -28,6 +28,10 @@ RUN apt install fftw3 -y && \
 cd /usr/lib/x86_64-linux-gnu/ && \
 ln -s libfftw3.so.3 libfftw.so
 
+RUN cd /root/lammps-3Mar20/src && \
+apt-get install libfftw3-dev && \
+make fftw
+
 ENV PATH=$PATH:$HOME/openmpi-4.0.4/bin
 
 RUN cd /root/lammps-3Mar20/src/ && \
