@@ -36,7 +36,8 @@ make mpi-stubs && \
 make yes-all && make no-lib && \
 make mpi && make mac && make serial && make big && make fftw
 
-ENV PATH=$PATH:/root/mpich/bin
+RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.g++_mpich
+COPY Makefiles/Makefile.g++_mpich /root/lammps-3Mar20/src/MAKE/OPTIONS/
 
 RUN cd /root/lammps-3Mar20/src && \
 make g++_mpich
