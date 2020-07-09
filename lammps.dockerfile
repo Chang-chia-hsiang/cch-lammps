@@ -39,7 +39,4 @@ COPY Makefiles/Makefile.mpi /root/lammps-3Mar20/src/MAKE/
 RUN cd /root/lammps-3Mar20/src/ && \
 make mpi-stubs && \
 make yes-all && make no-lib && \
-make mpi && make mac && make serial && make big && make fftw
-
-RUN cd /root/lammps-3Mar20/src && \
-make g++_mpich
+make mpi && make mac && make serial && make big && make fftw && make g++_mpich
