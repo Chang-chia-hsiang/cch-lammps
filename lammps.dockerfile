@@ -25,19 +25,16 @@ make all && make install && \
 cd /root/ && rm mpich-3.3.2.tar.gz
 
 RUN apt install fftw3 -y && \
+apt-get install libfftw3-dev -y && \
 cd /usr/lib/x86_64-linux-gnu/ && \
 ln -s libfftw3.so.3 libfftw.so
-
-RUN cd /root/lammps-3Mar20/src && \
-apt-get install libfftw3-dev -y && \
-make fftw
 
 ENV PATH=$PATH:$HOME/openmpi-4.0.4/bin
 
 RUN cd /root/lammps-3Mar20/src/ && \
 make mpi-stubs && \
 make yes-all && make no-lib && \
-make mpi && make mac && make serial && make big
+make mpi && make mac && make serial && make big && make fftw
 
 ENV PATH=$PATH:$HOME/mpich/bin
 
