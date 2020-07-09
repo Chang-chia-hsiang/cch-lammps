@@ -25,5 +25,4 @@ ENV PATH=$PATH:$HOME/openmpi-4.0.4/bin
 RUN cd /root/lammps-3Mar20/src/ && \
 make mpi-stubs && \
 make yes-all && make no-lib && \
-make mpi && make mac && make serial && \
-cd /root/lammps-3Mar20/examples/
+make mpi && make mac && make serial && make big
