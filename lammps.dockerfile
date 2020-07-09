@@ -31,7 +31,7 @@ ln -s libfftw3.so.3 libfftw.so
 
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.g++_mpich && \
 rm /root/lammps-3Mar20/src/MAKE/Makefile.mpi && \
-rm /root/mpich-3.3.2 && \
+rm -rf /root/mpich-3.3.2 && \
 rm /root/download
 COPY Makefiles/Makefile.g++_mpich /root/lammps-3Mar20/src/MAKE/OPTIONS/
 COPY Makefiles/Makefile.mpi /root/lammps-3Mar20/src/
