@@ -86,7 +86,7 @@ vpath %.h ..
 # Link target
 
 $(EXE): $(OBJ) $(EXTRA_LINK_DEPENDS)
-        $(LINK) $(LINKFLAGS) $(EXTRA_PATH) $(OBJ) $(EXTRA_LIB) $(LIB) -o $(EXE)
+	$(LINK) $(LINKFLAGS) $(EXTRA_PATH) $(OBJ) $(EXTRA_LIB) $(LIB) -o $(EXE)
         $(SIZE) $(EXE)
 
 # Library targets
