@@ -29,17 +29,17 @@ apt-get install libfftw3-dev -y && \
 cd /usr/lib/x86_64-linux-gnu/ && \
 ln -s libfftw3.so.3 libfftw.so
 
-ENV PATH=$PATH:/root/openmpi-4.0.4/bin
+RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.g++_mpich && \
+rm /root/lammps-3Mar20/src/Makefile.mpi && \
+rm /root/mpich-3.3.2 && \
+rm /root/download
+COPY Makefiles/Makefile.g++_mpich /root/lammps-3Mar20/src/MAKE/OPTIONS/
+COPY Makefiles/Makefile.mpi /root/lammps-3Mar20/src/
 
 RUN cd /root/lammps-3Mar20/src/ && \
 make mpi-stubs && \
 make yes-all && make no-lib && \
 make mpi && make mac && make serial && make big && make fftw
-
-RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.g++_mpich && \
-rm /root/mpich-3.3.2 && \
-rm /root/download
-COPY Makefiles/Makefile.g++_mpich /root/lammps-3Mar20/src/MAKE/OPTIONS/
 
 RUN cd /root/lammps-3Mar20/src && \
 make g++_mpich
