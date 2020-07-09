@@ -8,13 +8,21 @@ RUN apt update && apt install -y \
     gcc g++ gfortran make cmake autoconf automake \
     libgtk2.*common libpango-1* libasound2* xserver-xorg cpio
 RUN wget https://sourceforge.net/projects/lammps/files/latest/download && \
-tar xvf download && \
-wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.4.tar.gz && \
+tar xvf download
+
+RUN wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.4.tar.gz && \
 tar zxvf openmpi-4.0.4.tar.gz && \
 cd openmpi-4.0.4/ && \
 ./configure --prefix=$HOME/openmpi-4.0.4/ && \
 make all && make install  && \
-cd /root/ && rm openmpi-4.0.4.tar
+cd /root/ && rm openmpi-4.0.4.tar.gz
+
+RUN wget http://www.mpich.org/static/downloads/3.3.2/mpich-3.3.2.tar.gz && \
+tar zxvf mpich-3.3.2.tar.gz && \
+cd mpich-3.3.2/ && \
+./configure --prefix=$HOME/mpich/ && \
+make all && make install && \
+cd /root/ && rm mpich-3.3.2.tar.gz
 
 RUN apt install fftw3 -y && \
 cd /usr/lib/x86_64-linux-gnu/ && \
