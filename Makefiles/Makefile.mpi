@@ -95,20 +95,20 @@ lib:    $(OBJ) $(EXTRA_LINK_DEPENDS)
         $(ARCHIVE) $(ARFLAGS) $(EXE) $(OBJ)
 
 shlib:  $(OBJ) $(EXTRA_LINK_DEPENDS)
-        $(CC) $(CCFLAGS) $(SHFLAGS) $(SHLIBFLAGS) $(EXTRA_PATH) -o $(EXE) \
+	$(CC) $(CCFLAGS) $(SHFLAGS) $(SHLIBFLAGS) $(EXTRA_PATH) -o $(EXE) \
         $(OBJ) $(EXTRA_LIB) $(LIB)
 
 # Compilation rules
 
 %.o:%.cpp
-        $(CC) $(CCFLAGS) $(SHFLAGS) $(EXTRA_INC) -c $<
+	$(CC) $(CCFLAGS) $(SHFLAGS) $(EXTRA_INC) -c $<
 
 # Individual dependencies
 
 depend : fastdep.exe $(SRC)
-        @./fastdep.exe $(EXTRA_INC) -- $^ > .depend || exit 1
+	@./fastdep.exe $(EXTRA_INC) -- $^ > .depend || exit 1
 
 fastdep.exe: ../DEPEND/fastdep.c
-        cc -O -o $@ $<
+	cc -O -o $@ $<
 
 sinclude .depend
