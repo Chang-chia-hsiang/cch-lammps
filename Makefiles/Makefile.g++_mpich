@@ -83,35 +83,35 @@ vpath %.h ..
 # Link target
 
 $(EXE): $(OBJ) $(EXTRA_LINK_DEPENDS)
-        $(LINK) $(LINKFLAGS) $(EXTRA_PATH) $(OBJ) $(EXTRA_LIB) $(LIB) -o $(EXE)
+		$(LINK) $(LINKFLAGS) $(EXTRA_PATH) $(OBJ) $(EXTRA_LIB) $(LIB) -o $(EXE)
 		$(SIZE) $(EXE)
 
 # Library targets
 
 lib:    $(OBJ) $(EXTRA_LINK_DEPENDS)
-        $(ARCHIVE) $(ARFLAGS) $(EXE) $(OBJ)
+	$(ARCHIVE) $(ARFLAGS) $(EXE) $(OBJ)
 
 shlib:  $(OBJ) $(EXTRA_LINK_DEPENDS)
-        $(CC) $(CCFLAGS) $(SHFLAGS) $(SHLIBFLAGS) $(EXTRA_PATH) -o $(EXE) \
-        $(OBJ) $(EXTRA_LIB) $(LIB)
+	$(CC) $(CCFLAGS) $(SHFLAGS) $(SHLIBFLAGS) $(EXTRA_PATH) -o $(EXE) \
+	$(OBJ) $(EXTRA_LIB) $(LIB)
 
 # Compilation rules
 
 %.o:%.cpp $(EXTRA_CPP_DEPENDS)
-        $(CC) $(CCFLAGS) $(SHFLAGS) $(EXTRA_INC) -c $<
+	$(CC) $(CCFLAGS) $(SHFLAGS) $(EXTRA_INC) -c $<
 
 %.d:%.cpp $(EXTRA_CPP_DEPENDS)
-        $(CC) $(CCFLAGS) $(EXTRA_INC) $(DEPFLAGS) $< > $@
+	$(CC) $(CCFLAGS) $(EXTRA_INC) $(DEPFLAGS) $< > $@
 
 %.o:%.cu $(EXTRA_CPP_DEPENDS)
-		$(CC) $(CCFLAGS) $(SHFLAGS) $(EXTRA_INC) -c $<
+	$(CC) $(CCFLAGS) $(SHFLAGS) $(EXTRA_INC) -c $<
 
 # Individual dependencies
 
 depend : fastdep.exe $(SRC)
-@./fastdep.exe $(EXTRA_INC) -- $^ > .depend || exit 1
+	@./fastdep.exe $(EXTRA_INC) -- $^ > .depend || exit 1
 
 fastdep.exe: ../DEPEND/fastdep.c
-cc -O -o $@ $<
+	cc -O -o $@ $<
 
 sinclude .depend
