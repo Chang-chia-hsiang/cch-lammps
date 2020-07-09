@@ -34,3 +34,8 @@ RUN cd /root/lammps-3Mar20/src/ && \
 make mpi-stubs && \
 make yes-all && make no-lib && \
 make mpi && make mac && make serial && make big
+
+ENV PATH=$PATH:$HOME/mpich/bin
+
+RUN cd /root/lammps-3Mar20/src && \
+make g++_mpich
