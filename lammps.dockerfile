@@ -102,3 +102,13 @@ RUN cd /root/lammps-3Mar20/src/ && apt-get install libjpeg-dev -y && make jpeg
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.mgptfast
 COPY Makefiles/Makefile.mgptfast /root/lammps-3Mar20/src/MAKE/OPTIONS/
 RUN cd /root/lammps-3Mar20/src/ && make mgptfast
+
+## make omp ##
+RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.omp
+COPY Makefiles/Makefile.omp /root/lammps-3Mar20/src/MAKE/OPTIONS/
+RUN cd /root/lammps-3Mar20/src/ && make omp
+
+## make opt ##
+RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.opt
+COPY Makefiles/Makefile.opt /root/lammps-3Mar20/src/MAKE/OPTIONS/
+RUN cd /root/lammps-3Mar20/src/ && make opt
