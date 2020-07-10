@@ -48,6 +48,9 @@ RUN cd /root/lammps-3Mar20/src/ && make mac
 ## make serial ##
 RUN cd /root/lammps-3Mar20/src/ && make serial
 
+## make g++_serial ##
+RUN cd /root/lammps-3Mar20/src/ && make g++_serial
+
 ## make big ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.big
 COPY Makefiles/Makefile.big /root/lammps-3Mar20/src/MAKE/OPTIONS/
