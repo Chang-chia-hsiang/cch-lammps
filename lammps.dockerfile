@@ -90,18 +90,6 @@ RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.gpu
 COPY Makefiles/Makefile.gpu /root/lammps-3Mar20/src/MAKE/OPTIONS/
 RUN cd /root/lammps-3Mar20/src/ && make gpu
 
-## jpeg ##
-RUN cd /usr/include/ && \
-git clone https://github.com/Chang-chia-hsiang/libjpeg.git && \
-mv libjpeg/* . && \
-rm -rf libjpeg && \
-cp /usr/include/x86_64-linux-gnu/jconfig.h /usr/include/
-
-## make jpeg ##
-RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.jpeg
-COPY Makefiles/Makefile.jpeg /root/lammps-3Mar20/src/MAKE/OPTIONS/
-RUN cd /root/lammps-3Mar20/src/ && apt-get install libjpeg-dev -y && make jpeg
-
 ## make mgptfast ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.mgptfast
 COPY Makefiles/Makefile.mgptfast /root/lammps-3Mar20/src/MAKE/OPTIONS/
@@ -127,6 +115,18 @@ mv zlib/contrib zlib/contrib.zlib && \
 mv zlib/* . && \
 rm -rf libpng zlib
 COPY Makefiles/pnglibconf.h /usr/include/
+
+## jpeg ##
+RUN cd /usr/include/ && \
+git clone https://github.com/Chang-chia-hsiang/libjpeg.git && \
+mv libjpeg/* . && \
+rm -rf libjpeg && \
+cp /usr/include/x86_64-linux-gnu/jconfig.h /usr/include/
+
+## make jpeg ##
+RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.jpeg
+COPY Makefiles/Makefile.jpeg /root/lammps-3Mar20/src/MAKE/OPTIONS/
+RUN cd /root/lammps-3Mar20/src/ && apt-get install libjpeg-dev -y && make jpeg
 
 ## make png ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.png
