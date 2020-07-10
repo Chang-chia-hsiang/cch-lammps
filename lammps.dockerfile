@@ -68,8 +68,9 @@ RUN cp /root/openmpi-4.0.4/include/mpi_portable_platform.h /usr/include/ && \
 cp /root/openmpi-4.0.4/include/mpi.h /usr/include/ && \
 cp /root/mpich/lib/libmpich.so /usr/lib/ && \
 cp /root/mpich/lib/libmpl.so /usr/lib/
-#cd /root/lammps-3Mar20/src && \
-#make mode=shlib g++_mpich_link
+
+## make g++_mpich_link ##
+#RUN cd /root/lammps-3Mar20/src && make g++_mpich_link
 
 ## make g++_openmpi ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.g++_openmpi
@@ -128,4 +129,5 @@ COPY Makefiles/pnglibconf.h /usr/include/
 ## make png ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.png
 COPY Makefiles/Makefile.png /root/lammps-3Mar20/src/MAKE/OPTIONS/
-RUN cd /root/lammps-3Mar20/src/ && apt-get install libpng-dev -y && make png
+RUN cd /root/lammps-3Mar20/src/ && apt-get install libpng-dev -y 
+#&& make png
