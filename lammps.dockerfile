@@ -58,3 +58,7 @@ RUN cd /root/lammps-3Mar20/src/ && make g++_mpich
 #cp /root/mpich/lib/libmpl.so /usr/lib/ && \
 #cd /root/lammps-3Mar20/src && \
 #make mode=shlib g++_mpich_link
+
+RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.g++_openmpi
+COPY Makefiles/Makefile.g++_openmpi /root/lammps-3Mar20/src/MAKE/OPTIONS/
+RUN cd /root/lammps-3Mar20/src/ && make g++_openmpi
