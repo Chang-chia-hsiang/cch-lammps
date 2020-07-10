@@ -142,3 +142,8 @@ RUN cp /root/openmpi-4.0.4/lib/libmpi.so.40 /usr/lib/
 RUN rm /root/lammps-3Mar20/src/MAKE/MACHINES/Makefile.cygwin
 COPY Makefiles/Makefile.cygwin /root/lammps-3Mar20/src/MAKE/MACHINES/
 RUN cd /root/lammps-3Mar20/src/ && make cygwin
+
+## make mac_mpi ##
+RUN rm /root/lammps-3Mar20/src/MAKE/MACHINES/Makefile.mac_mpi
+COPY Makefiles/Makefile.mac_mpi /root/lammps-3Mar20/src/MAKE/MACHINES/
+RUN cd /root/lammps-3Mar20/src/ && make mac_mpi
