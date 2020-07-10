@@ -94,7 +94,6 @@ RUN cd /root/lammps-3Mar20/src/ && make gpu
 RUN cd /usr/include/ && \
 git clone https://github.com/Chang-chia-hsiang/libjpeg.git && \
 mv libjpeg/* . && \
-mv cmake/ cmake.jpeg/ && \
 rm -rf libjpeg
 COPY Makefiles/jconfig.h /usr/include/
 
@@ -122,6 +121,7 @@ RUN cd /root/lammps-3Mar20/src/ && make opt
 RUN cd /usr/include/ && \
 git clone https://github.com/Chang-chia-hsiang/libpng.git && \
 git clone https://github.com/Chang-chia-hsiang/zlib.git && \
+mv cmake/ cmake.jpeg/ && \
 mv libpng/* . && \
 mv zlib/contrib zlib/contrib.zlib && \
 mv zlib/* . && \
