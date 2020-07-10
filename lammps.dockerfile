@@ -133,5 +133,4 @@ COPY Makefiles/pnglibconf.h /usr/include/
 ## make png ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.png
 COPY Makefiles/Makefile.png /root/lammps-3Mar20/src/MAKE/OPTIONS/
-RUN cd /root/lammps-3Mar20/src/ 
-#&& make png
+RUN cd /root/lammps-3Mar20/src/ && make png
