@@ -134,3 +134,5 @@ COPY Makefiles/pnglibconf.h /usr/include/
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.png
 COPY Makefiles/Makefile.png /root/lammps-3Mar20/src/MAKE/OPTIONS/
 RUN cd /root/lammps-3Mar20/src/ && make png
+
+RUN cp /root/openmpi-4.0.4/lib/libmpi.so.40 /usr/lib/
