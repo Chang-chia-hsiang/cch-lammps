@@ -78,7 +78,7 @@ RUN cd /root/lammps-3Mar20/src/ && make g++_openmpi
 ## make g++_openmpi_link ##
 RUN cp /root/openmpi-4.0.4/lib/libmpi.so /usr/lib/ && \
 cp /root/openmpi-4.0.4/lib/libmpi.so /usr/lib/libmpi_cxx.so && \
-make g++_openmpi_link
+cd /root/lammps-3Mar20/src/ && make g++_openmpi_link
 
 ## make gpu ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.gpu
