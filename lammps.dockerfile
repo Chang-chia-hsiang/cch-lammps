@@ -121,12 +121,13 @@ RUN cd /usr/include/ && \
 git clone https://github.com/Chang-chia-hsiang/libjpeg.git && \
 mv libjpeg/* . && \
 rm -rf libjpeg && \
+apt-get install libjpeg-dev -y && \
 cp /usr/include/x86_64-linux-gnu/jconfig.h /usr/include/
 
 ## make jpeg ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.jpeg
 COPY Makefiles/Makefile.jpeg /root/lammps-3Mar20/src/MAKE/OPTIONS/
-RUN cd /root/lammps-3Mar20/src/ && apt-get install libjpeg-dev -y && make jpeg
+RUN cd /root/lammps-3Mar20/src/ && make jpeg
 
 ## make png ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.png
