@@ -97,3 +97,8 @@ COPY Makefiles/jconfig.h /usr/include/
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.jpeg
 COPY Makefiles/Makefile.jpeg /root/lammps-3Mar20/src/MAKE/OPTIONS/
 RUN cd /root/lammps-3Mar20/src/ && apt-get install libjpeg-dev -y && make jpeg
+
+## make mgptfast ##
+RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.mgptfast
+COPY Makefiles/Makefile.mgptfast /root/lammps-3Mar20/src/MAKE/OPTIONS/
+RUN cd /root/lammps-3Mar20/src/ && make mgptfast
