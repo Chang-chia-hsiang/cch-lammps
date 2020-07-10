@@ -123,6 +123,7 @@ mv zlib/contrib zlib/contrib.zlib && \
 mv zlib/* . && \
 rm -rf libpng zlib && \
 mv cmake/ cmake.png/
+COPY Makefiles/pnglibconf.h /usr/include/
 
 ## make png ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.png
