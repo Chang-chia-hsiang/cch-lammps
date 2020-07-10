@@ -63,10 +63,11 @@ RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.g++_mpich
 COPY Makefiles/Makefile.g++_mpich /root/lammps-3Mar20/src/MAKE/OPTIONS/
 RUN cd /root/lammps-3Mar20/src/ && make g++_mpich
 
-#RUN cp /root/openmpi-4.0.4/include/mpi_portable_platform.h /usr/include/ && \
-#cp /root/openmpi-4.0.4/include/mpi.h /usr/include/ && \
-#cp /root/mpich/lib/libmpich.so /usr/lib/ && \
-#cp /root/mpich/lib/libmpl.so /usr/lib/ && \
+## mpi, mpich, mpl ##
+RUN cp /root/openmpi-4.0.4/include/mpi_portable_platform.h /usr/include/ && \
+cp /root/openmpi-4.0.4/include/mpi.h /usr/include/ && \
+cp /root/mpich/lib/libmpich.so /usr/lib/ && \
+cp /root/mpich/lib/libmpl.so /usr/lib/
 #cd /root/lammps-3Mar20/src && \
 #make mode=shlib g++_mpich_link
 
