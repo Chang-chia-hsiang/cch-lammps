@@ -125,8 +125,7 @@ mv cmake/ cmake.jpeg/ && \
 mv libpng/* . && \
 mv zlib/contrib zlib/contrib.zlib && \
 mv zlib/* . && \
-rm -rf libpng zlib && \
-mv cmake/ cmake.png/
+rm -rf libpng zlib
 COPY Makefiles/pnglibconf.h /usr/include/
 
 ## make png ##
