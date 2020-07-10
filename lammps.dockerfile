@@ -94,8 +94,8 @@ RUN cd /root/lammps-3Mar20/src/ && make gpu
 RUN cd /usr/include/ && \
 git clone https://github.com/Chang-chia-hsiang/libjpeg.git && \
 mv libjpeg/* . && \
-rm -rf libjpeg
-COPY Makefiles/jconfig.h /usr/include/
+rm -rf libjpeg && \
+cp /usr/include/x86_64-linux-gnu/jconfig.h /usr/include/
 
 ## make jpeg ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.jpeg
