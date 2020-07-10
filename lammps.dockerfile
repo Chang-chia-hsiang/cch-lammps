@@ -137,3 +137,8 @@ RUN cd /root/lammps-3Mar20/src/ && make png
 
 ## lmp_g++_openmpi_link ##
 RUN cp /root/openmpi-4.0.4/lib/libmpi.so.40 /usr/lib/
+
+## make cygwin ##
+RUN rm /root/lammps-3Mar20/src/MAKE/MACHINES/Makefile.cygwin
+COPY Makefiles/Makefile.cygwin /root/lammps-3Mar20/src/MAKE/MACHINES/
+RUN cd /root/lammps-3Mar20/src/ && make cygwin
