@@ -112,3 +112,19 @@ RUN cd /root/lammps-3Mar20/src/ && make omp
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.opt
 COPY Makefiles/Makefile.opt /root/lammps-3Mar20/src/MAKE/OPTIONS/
 RUN cd /root/lammps-3Mar20/src/ && make opt
+
+## png ##
+RUN cd /usr/include/ && \
+git clone https://github.com/Chang-chia-hsiang/libpng.git && \
+git clone https://github.com/Chang-chia-hsiang/zlib.git && \
+mv cmake/ cmake.jpeg/ && \
+mv libpng/* . && \
+mv zlib/contrib zlib/contrib.zlib && \
+mv zlib/* . && \
+rm -rf libpng zlib && \
+mv cmake/ cmake.png/
+
+## make png ##
+RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.png
+COPY Makefiles/Makefile.png /root/lammps-3Mar20/src/MAKE/OPTIONS/
+RUN cd /root/lammps-3Mar20/src/ && make png
