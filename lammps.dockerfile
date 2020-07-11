@@ -159,3 +159,6 @@ RUN cd /root/lammps-3Mar20/src && make g++_mpich_link
 RUN rm /root/lammps-3Mar20/src/MAKE/MACHINES/Makefile.ubuntu
 COPY Makefiles/Makefile.ubuntu /root/lammps-3Mar20/src/MAKE/MACHINES/
 RUN cd /root/lammps-3Mar20/src/ && make ubuntu
+
+## make ubuntu_simple ##
+RUN cd /root/lammps-3Mar20/src/ && make ubuntu_simple
