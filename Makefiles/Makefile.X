@@ -1,0 +1,1 @@
+RUN cd /root/lammps-3Mar20/src/ && make mpi && make mac && make serial && make g++_serial && make big  && make fftw && make g++_mpich && make g++_mpich_link && make g++_openmpi && make g++_openmpi_link && make gpu && make mgptfast && make omp && make opt && make jpeg && make png && make cygwin && make mac_mpi && make ubuntu && make ubuntu_simple
