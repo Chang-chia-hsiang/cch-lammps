@@ -128,7 +128,7 @@ mv zlib/contrib zlib/contrib.zlib && \
 mv zlib/* include/ && \
 rm -rf libpng zlib && \
 apt-get install libpng-dev -y
-COPY Makefiles/pnglibconf.h /usr/include/
+COPY Headers/pnglibconf.h /usr/include/
 
 ## make png ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.png
