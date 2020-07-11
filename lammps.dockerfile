@@ -66,11 +66,12 @@ RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.g++_mpich
 COPY Makefiles/Makefile.g++_mpich /root/lammps-3Mar20/src/MAKE/OPTIONS/
 RUN cd /root/lammps-3Mar20/src/ && make g++_mpich
 
-## mpi, mpich, mpl ##
-RUN cp /root/openmpi-4.0.4/include/mpi_portable_platform.h /usr/include/ && \
-cp /root/openmpi-4.0.4/include/mpi.h /usr/include/ && \
-cp /root/mpich/lib/libmpich.so /usr/lib/ && \
-cp /root/mpich/lib/libmpl.so /usr/lib/
+## g++_mpich_link ##
+RUN cp /root/lammps-3Mar20/src/STUBS/mpi.h /usr/include && \
+apt-get install libmpich-dev -y
+
+## make g++_mpich_link ##
+RUN cd /root/lammps-3Mar20/src && make g++_mpich_link
 
 ## make g++_openmpi ##
 RUN rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.g++_openmpi
@@ -144,16 +145,6 @@ RUN cd /root/lammps-3Mar20/src/ && make cygwin
 RUN rm /root/lammps-3Mar20/src/MAKE/MACHINES/Makefile.mac_mpi
 COPY Makefiles/Makefile.mac_mpi /root/lammps-3Mar20/src/MAKE/MACHINES/
 RUN cd /root/lammps-3Mar20/src/ && make mac_mpi
-
-## g++_mpich_link ##
-RUN rm /usr/include/mpi.h && \
-rm /usr/lib/libmpich.so && \
-rm /usr/lib/libmpl.so && \
-cp /root/lammps-3Mar20/src/STUBS/mpi.h /usr/include && \
-apt-get install libmpich-dev -y
-
-## make g++_mpich_link ##
-RUN cd /root/lammps-3Mar20/src && make g++_mpich_link
 
 ## make ubuntu ##
 RUN rm /root/lammps-3Mar20/src/MAKE/MACHINES/Makefile.ubuntu
