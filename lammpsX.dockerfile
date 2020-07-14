@@ -16,7 +16,7 @@ RUN wget https://sourceforge.net/projects/lammps/files/latest/download && \
 tar xvf download && \
 rm download
 
-## fix ##
+## Makefiles fixed ##
 RUN rm /root/lammps-3Mar20/src/MAKE/Makefile.mpi && \
 rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.big && \
 rm /root/lammps-3Mar20/src/MAKE/OPTIONS/Makefile.fftw && \
